@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Ali Total Price",
+    "version": "1.0",
+    "description": "",
+    "content_scripts": [
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "https://www.aliexpress.com/item/*"
+            ]
+        }
+    ]
+}
