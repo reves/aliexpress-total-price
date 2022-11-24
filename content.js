@@ -1,6 +1,7 @@
 const area = document.getElementsByClassName('product-info')[0]
-const priceNode = document.getElementsByClassName('uniform-banner-box-price')[0]
-    ?? document.getElementsByClassName('product-price-value')[0]
+const priceNode = document.getElementsByClassName('product-price-value')[0]
+const priceNodeSale = document.getElementsByClassName('uniform-banner-box-price')[0]
+if (priceNodeSale && !priceNodeSale.textContent.includes(' - ')) priceNode = priceNodeSale
 const shippingNode = document.getElementsByClassName('dynamic-shipping-titleLayout')[0]
 const el = document.createElement('div')
 
@@ -13,7 +14,7 @@ function getFloat(val) {
 
 function getTotal() {
     const price = getFloat(priceNode.textContent)
-    const shipping = getFloat(shippingNode.textContent)
+    const shipping = getFloat(shippingNode.textContent) || 0
     const total = price + shipping
     return (Math.round((total + Number.EPSILON) * 100) / 100)
 }
@@ -23,7 +24,7 @@ function update() {
         el.innerHTML = `<div style="font-size: 20px; font-weight: bold; padding: 12px 0;">
                 Total: $${getTotal()}
             </div>`
-    }, 0)
+    }, 250)
 }
 
 shippingNode.parentNode.insertBefore(el, shippingNode.nextSibling)
