@@ -1,6 +1,6 @@
 const area = document.getElementsByClassName('product-info')[0]
 const priceNode = document.getElementsByClassName('product-price-value')[0]
-const priceNodeSale = document.getElementsByClassName('uniform-banner-box-price')[0]
+let priceNodeSale = document.getElementsByClassName('uniform-banner-box-price')[0]
 if (priceNodeSale && !priceNodeSale.textContent.includes(' - ')) priceNode = priceNodeSale
 const shippingNode = document.getElementsByClassName('dynamic-shipping-titleLayout')[0]
 const el = document.createElement('div')
